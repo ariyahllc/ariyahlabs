@@ -1,0 +1,184 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Ariyah Labs — Nutrition data infrastructure for Indian food</title>
+<meta name="description" content="Ariyah Labs builds the measurement layer for Indian dietary assessment, starting with the household portion units Indian kitchens actually use.">
+<meta property="og:title" content="Ariyah Labs">
+<meta property="og:description" content="Nutrition data infrastructure for Indian food.">
+<meta property="og:type" content="website">
+<style>
+:root{
+  --bg:#fbfaf8; --surface:#ffffff; --ink:#16181a; --ink-2:#4a5157; --ink-3:#767f87;
+  --line:#e3e0da; --accent:#1f5c46; --accent-soft:#eef3f0; --max:66rem;
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    --bg:#0f1113; --surface:#16191c; --ink:#f0efec; --ink-2:#b3bac0; --ink-3:#828b93;
+    --line:#272b2f; --accent:#6fbf9b; --accent-soft:#152420;
+  }
+}
+*{box-sizing:border-box}
+body{
+  margin:0; background:var(--bg); color:var(--ink);
+  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Inter,Roboto,Helvetica,Arial,sans-serif;
+  font-size:17px; line-height:1.65; -webkit-font-smoothing:antialiased;
+}
+.wrap{max-width:var(--max); margin:0 auto; padding:0 1.6rem}
+a{color:var(--accent)}
+h1,h2,h3{line-height:1.2; letter-spacing:-0.018em; margin:0}
+h1{font-size:clamp(2.1rem,5.2vw,3.3rem); font-weight:640}
+h2{font-size:clamp(1.35rem,2.9vw,1.75rem); font-weight:620; margin-bottom:.9rem}
+h3{font-size:1.02rem; font-weight:640; margin-bottom:.35rem}
+p{margin:0 0 1.05rem}
+.lede{font-size:clamp(1.08rem,2vw,1.28rem); color:var(--ink-2); max-width:44ch}
+
+header{border-bottom:1px solid var(--line); position:sticky; top:0; background:color-mix(in srgb,var(--bg) 88%,transparent); backdrop-filter:blur(8px); z-index:10}
+.bar{display:flex; align-items:center; justify-content:space-between; padding:1.05rem 0; gap:1rem}
+.brand{display:flex; align-items:center; gap:.6rem; font-weight:660; letter-spacing:-0.02em; font-size:1.02rem; color:var(--ink); text-decoration:none}
+.mark{width:1.55rem;height:1.55rem;border-radius:5px;background:var(--accent);display:grid;place-items:center;color:#fff;font-size:.82rem;font-weight:700;flex:none}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .mark{color:#0f1113}}
+.bar nav{display:flex; gap:1.4rem; font-size:.92rem}
+.bar nav a{color:var(--ink-2); text-decoration:none}
+.bar nav a:hover{color:var(--accent)}
+@media(max-width:600px){.bar nav{display:none}}
+
+section{padding:4.6rem 0; border-bottom:1px solid var(--line)}
+.hero{padding:6rem 0 5rem; border-bottom:1px solid var(--line)}
+.tag{display:inline-block; font-size:.78rem; letter-spacing:.08em; text-transform:uppercase; color:var(--accent); background:var(--accent-soft); border:1px solid var(--line); padding:.32rem .7rem; border-radius:100px; margin-bottom:1.5rem; font-weight:600}
+.hero h1{max-width:19ch; margin-bottom:1.3rem}
+
+.grid{display:grid; gap:1.5rem; margin-top:2rem}
+.g2{grid-template-columns:repeat(auto-fit,minmax(17rem,1fr))}
+.g3{grid-template-columns:repeat(auto-fit,minmax(14.5rem,1fr))}
+.card{background:var(--surface); border:1px solid var(--line); border-radius:10px; padding:1.5rem}
+.card p{margin:0; color:var(--ink-2); font-size:.95rem}
+
+.units{width:100%; border-collapse:collapse; margin-top:1.6rem; font-size:.94rem; display:block; overflow-x:auto; white-space:nowrap}
+.units th,.units td{text-align:left; padding:.72rem 1rem; border-bottom:1px solid var(--line)}
+.units th{font-size:.78rem; text-transform:uppercase; letter-spacing:.06em; color:var(--ink-3); font-weight:640}
+.units td:first-child{font-weight:600; white-space:nowrap}
+.units td:last-child{color:var(--ink-2)}
+
+.rule{list-style:none; padding:0; margin:1.6rem 0 0; display:grid; gap:1.15rem}
+.rule li{padding-left:1.5rem; position:relative; color:var(--ink-2); max-width:62ch}
+.rule li::before{content:""; position:absolute; left:0; top:.62em; width:.42rem; height:.42rem; border-radius:50%; background:var(--accent)}
+.rule strong{color:var(--ink); font-weight:640}
+
+.status{background:var(--accent-soft); border:1px solid var(--line); border-radius:10px; padding:1.8rem}
+.status h2{margin-bottom:.7rem}
+.status p{color:var(--ink-2); max-width:60ch}
+.status p:last-child{margin-bottom:0}
+
+.src{font-size:.94rem; color:var(--ink-2); margin-top:1.5rem}
+.src li{margin-bottom:.6rem}
+
+.contact a.mail{font-size:clamp(1.15rem,2.6vw,1.5rem); font-weight:620; letter-spacing:-0.02em; text-decoration:none; border-bottom:2px solid var(--accent); padding-bottom:.1rem}
+footer{padding:2.6rem 0 3.4rem; font-size:.88rem; color:var(--ink-3)}
+footer p{margin:0 0 .4rem}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap bar">
+    <a class="brand" href="/"><span class="mark">A</span> Ariyah Labs</a>
+    <nav>
+      <a href="#problem">Problem</a>
+      <a href="#work">What we build</a>
+      <a href="#data">Data practice</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<div class="hero">
+  <div class="wrap">
+    <span class="tag">Applied nutrition data</span>
+    <h1>Nutrition data infrastructure for Indian food.</h1>
+    <p class="lede">We build the measurement layer that makes Indian dietary assessment work, starting with the portion units Indian kitchens actually use.</p>
+  </div>
+</div>
+
+<section id="problem">
+  <div class="wrap">
+    <h2>The measurement gap</h2>
+    <p style="color:var(--ink-2);max-width:62ch">Food composition databases store nutrient values per 100 grams. Indian households do not measure food in grams. They measure in katoris, rotis, ladles and tumblers. Almost every dietary tracking tool available in India bridges that gap by asking the user to guess, or by silently applying a Western default serving size.</p>
+    <p style="color:var(--ink-2);max-width:62ch">The gap is not a rounding error. The same 150&nbsp;ml katori holds very different weights depending on what is in it and how it was cooked.</p>
+
+    <table class="units">
+      <thead><tr><th>Household unit</th><th>What has to be established</th></tr></thead>
+      <tbody>
+        <tr><td>katori</td><td>size class, then grams by food density — thin dal, thick rajma and dry sabzi differ substantially at equal volume</td></tr>
+        <tr><td>roti / chapati</td><td>diameter and thickness, and flour type: atta, maida, bajra, jowar</td></tr>
+        <tr><td>dosa</td><td>plain, masala or paper — roughly a threefold weight range</td></tr>
+        <tr><td>idli</td><td>count-based, but regional size varies by about 1.5×</td></tr>
+        <tr><td>colloquial quantity</td><td>"thoda", "aadha katori", "ek chammach" still resolve to a number</td></tr>
+      </tbody>
+    </table>
+    <p class="src" style="max-width:62ch">Multiply those units across several thousand regional dishes and every cell has to be measured rather than estimated. That table does not exist as a public resource. Building and validating it is our current work.</p>
+  </div>
+</section>
+
+<section id="work">
+  <div class="wrap">
+    <h2>What we build</h2>
+    <div class="grid g3">
+      <div class="card">
+        <h3>Home-portion ontology</h3>
+        <p>A validated mapping from household serving vessels to weights, resolved by food class and cooking method, across Indian regional cuisines.</p>
+      </div>
+      <div class="card">
+        <h3>Voice-first dietary logging</h3>
+        <p>People describe a meal in their own language and in their own units. Speech and language handling for Indic languages, not a translated interface.</p>
+      </div>
+      <div class="card">
+        <h3>Correction as measurement</h3>
+        <p>Every user correction to an estimated portion is a data point. Aggregated, it produces empirical portion distributions across regions.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="data">
+  <div class="wrap">
+    <h2>How we work with data</h2>
+    <p style="color:var(--ink-2);max-width:62ch">Indian food composition data is the product of decades of publicly funded scientific work. We treat it accordingly.</p>
+    <ul class="rule">
+      <li><strong>We license, we do not scrape.</strong> Where a source requires written permission for commercial use, we obtain it before building on the data.</li>
+      <li><strong>Attribution is permanent and visible.</strong> Source institutions are credited in the product itself, not only in a buried acknowledgements page.</li>
+      <li><strong>We do not redistribute source datasets.</strong> Underlying tables are never republished as a standalone dataset.</li>
+      <li><strong>Measurement flows back.</strong> Anonymised, aggregated portion data we generate is offered back to the research institutions whose work we build on, at no cost.</li>
+    </ul>
+    <p class="src" style="max-width:62ch">Our foundational references are the Indian Food Composition Tables 2017, published by ICMR–National Institute of Nutrition, Hyderabad, and the Indian Nutrient Databank, developed by Anuvaad Solutions. Neither institution is affiliated with Ariyah Labs, and neither has endorsed this work.</p>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="status">
+      <h2>Current stage</h2>
+      <p>Ariyah Labs is at the data foundation stage. We are assembling and validating the portion ontology before building consumer product, because the ontology is the part that determines whether anything built on top of it is accurate.</p>
+      <p>We are actively seeking data partnerships and licensing conversations with nutrition research institutions. If your organisation holds Indian food composition or dietary intake data, we would value a conversation.</p>
+    </div>
+  </div>
+</section>
+
+<section id="contact" class="contact">
+  <div class="wrap">
+    <h2>Contact</h2>
+    <p style="color:var(--ink-2);max-width:52ch">For data partnerships, licensing, or research collaboration.</p>
+    <p><a class="mail" href="mailto:contact@ariyahlabs.com">contact@ariyahlabs.com</a></p>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <p><strong style="color:var(--ink-2)">Ariyah Labs</strong> is the applied research practice of Ariyah LLC, a software engineering company registered in Texas, United States.</p>
+    <p>&copy; 2026 Ariyah LLC. All rights reserved.</p>
+  </div>
+</footer>
+
+</body>
+</html>
