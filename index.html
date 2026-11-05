@@ -19,6 +19,11 @@
     --line:#272b2f; --accent:#6fbf9b; --accent-soft:#152420;
   }
 }
+:root[data-theme="dark"]{
+    --bg:#0f1113; --surface:#16191c; --ink:#f0efec; --ink-2:#b3bac0; --ink-3:#828b93;
+    --line:#272b2f; --accent:#6fbf9b; --accent-soft:#152420;
+}
+:root[data-theme="dark"] .mark{color:#0f1113}
 *{box-sizing:border-box}
 body{
   margin:0; background:var(--bg); color:var(--ink);
@@ -69,6 +74,18 @@ section{padding:4.6rem 0; border-bottom:1px solid var(--line)}
 .rule strong{color:var(--ink); font-weight:640}
 
 .contact a.mail{font-size:clamp(1.15rem,2.6vw,1.5rem); font-weight:620; letter-spacing:-0.02em; text-decoration:none; border-bottom:2px solid var(--accent); padding-bottom:.1rem}
+#theme{background:none;border:1px solid var(--line);color:var(--ink-2);border-radius:6px;
+  width:2rem;height:2rem;cursor:pointer;font-size:.95rem;line-height:1;display:grid;place-items:center;padding:0}
+#theme:hover{color:var(--accent);border-color:var(--accent)}
+
+.who{display:flex;gap:1.6rem;align-items:flex-start;flex-wrap:wrap;margin-top:1.6rem}
+.who img,.who .initials{width:7.5rem;height:7.5rem;border-radius:10px;object-fit:cover;flex:none;border:1px solid var(--line)}
+.who .initials{background:var(--accent-soft);color:var(--accent);display:grid;place-items:center;font-size:2rem;font-weight:660}
+.who .bio{flex:1 1 20rem}
+.who .bio p{color:var(--ink-2);max-width:56ch}
+.who .bio p:last-child{margin-bottom:0}
+.role{font-size:.88rem;color:var(--ink-3);margin:-.1rem 0 .7rem}
+
 footer{padding:2.6rem 0 3.4rem; font-size:.88rem; color:var(--ink-3)}
 footer p{margin:0 0 .4rem}
 </style>
@@ -79,10 +96,11 @@ footer p{margin:0 0 .4rem}
   <div class="wrap bar">
     <a class="brand" href="/"><span class="mark">A</span> Ariyah Consulting Services</a>
     <nav>
-      <a href="#services">Services</a>
-      <a href="#ai">AI consulting</a>
+      <a href="#consulting">Consulting</a>
       <a href="#stack">Stack</a>
+      <a href="#founder">About</a>
       <a href="#contact">Contact</a>
+      <button id="theme" type="button" aria-label="Switch between light and dark mode" title="Light / dark"></button>
     </nav>
   </div>
 </header>
@@ -95,61 +113,24 @@ footer p{margin:0 0 .4rem}
   </div>
 </div>
 
-<section id="services">
+<section id="consulting">
   <div class="wrap">
-    <h2>What we do</h2>
-    <div class="grid g2">
-      <div class="card">
-        <h3>DevOps &amp; platform engineering</h3>
-        <p>Build the path from commit to production, then make it boring.</p>
-        <ul>
-          <li>CI/CD pipelines and release automation</li>
-          <li>Infrastructure as code: Terraform, Pulumi</li>
-          <li>Kubernetes, containers, service deployment</li>
-          <li>Observability: metrics, logs, traces, alerting that means something</li>
-          <li>Reliability engineering and incident response</li>
-          <li>Cloud cost reduction</li>
-        </ul>
-      </div>
-      <div class="card">
-        <h3>Salesforce</h3>
-        <p>Implementation and engineering, not just configuration.</p>
-        <ul>
-          <li>Implementation and org setup</li>
-          <li>Apex, Lightning Web Components, custom development</li>
-          <li>Integration with external systems and data pipelines</li>
-          <li>Migration and org consolidation</li>
-          <li>Release management and sandbox strategy</li>
-        </ul>
-      </div>
-      <div class="card">
-        <h3>AI engineering</h3>
-        <p>Systems that survive contact with real users and real budgets.</p>
-        <ul>
-          <li>LLM applications and agentic workflows</li>
-          <li>Retrieval systems and evaluation harnesses</li>
-          <li>Inference cost modelling and model routing</li>
-          <li>Model Context Protocol (MCP) servers and tool integration</li>
-          <li>Guardrails, monitoring, and failure handling</li>
-        </ul>
-      </div>
-      <div class="card">
-        <h3>Cloud architecture</h3>
-        <p>Design that holds up under growth and audit.</p>
-        <ul>
-          <li>AWS architecture and migration</li>
-          <li>Networking, identity, and access design</li>
-          <li>Multi-environment and multi-account structure</li>
-          <li>Backup, recovery, and continuity planning</li>
-        </ul>
-      </div>
-    </div>
-  </div>
-</section>
+    <h2>Consulting</h2>
+    <p style="color:var(--ink-2);max-width:62ch">Advisory and hands-on engineering across the areas below. Short engagements with a defined question, or longer work where we build and hand over.</p>
 
-<section id="ai">
-  <div class="wrap">
-    <h2>AI consulting</h2>
+    <div class="grid g3">
+      <div class="card"><h3>DevOps</h3><p>Pipelines, infrastructure as code, Kubernetes, release automation.</p></div>
+      <div class="card"><h3>Salesforce</h3><p>Implementation, Apex and LWC development, integration, migration.</p></div>
+      <div class="card"><h3>AI engineering</h3><p>LLM applications, agents, retrieval, evaluation, inference cost control.</p></div>
+      <div class="card"><h3>Platform engineering</h3><p>Internal developer platforms, golden paths, self-service environments.</p></div>
+      <div class="card"><h3>Site reliability</h3><p>SLOs, observability, incident response, on-call that people can live with.</p></div>
+      <div class="card"><h3>Cloud &amp; FinOps</h3><p>AWS architecture, migration, and getting the monthly bill back down.</p></div>
+      <div class="card"><h3>DevSecOps</h3><p>Supply chain security, secrets management, policy as code, compliance evidence.</p></div>
+      <div class="card"><h3>Data &amp; MLOps</h3><p>Pipelines, warehouses, model deployment and monitoring in production.</p></div>
+      <div class="card"><h3>Legacy modernisation</h3><p>Moving systems off hardware and frameworks nobody wants to maintain.</p></div>
+    </div>
+
+    <h2 style="margin-top:3.4rem">How we approach AI work</h2>
     <p style="color:var(--ink-2);max-width:62ch">Most AI projects stall in the same place. The demo works, then nobody can say what it costs per user, how often it is wrong, or what happens when the model changes. We work on the part after the demo.</p>
     <ul class="rule">
       <li><strong>Find the real use case.</strong> Which parts of your workflow a model actually improves, and which are cheaper to solve with ordinary software.</li>
@@ -190,6 +171,21 @@ footer p{margin:0 0 .4rem}
   </div>
 </section>
 
+<section id="founder">
+  <div class="wrap">
+    <h2>Who you work with</h2>
+    <div class="who">
+      <div class="initials" aria-hidden="true">DP</div>
+      <div class="bio">
+        <h3>Dinesh Patra</h3>
+        <p class="role">Founder and principal engineer</p>
+        <p>Platform, site reliability and cloud engineering, with recent work on AI systems and agent infrastructure. Based in Texas, working with clients across the United States.</p>
+        <p>You talk to the engineer doing the work. There is no account manager in between, and nothing gets handed to someone junior after the contract is signed.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
 <section id="contact" class="contact">
   <div class="wrap">
     <h2>Contact</h2>
@@ -205,5 +201,21 @@ footer p{margin:0 0 .4rem}
   </div>
 </footer>
 
+<script>
+(function () {
+  var root = document.documentElement, btn = document.getElementById("theme");
+  var dark = function () {
+    return (root.dataset.theme || (matchMedia("(prefers-color-scheme:dark)").matches ? "dark" : "light")) === "dark";
+  };
+  var paint = function () { btn.textContent = dark() ? "\u2600" : "\u263E"; };
+  try { if (localStorage.theme) root.dataset.theme = localStorage.theme; } catch (e) {}
+  paint();
+  btn.onclick = function () {
+    root.dataset.theme = dark() ? "light" : "dark";
+    try { localStorage.theme = root.dataset.theme; } catch (e) {}
+    paint();
+  };
+})();
+</script>
 </body>
 </html>
