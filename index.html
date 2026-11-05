@@ -67,7 +67,24 @@ nav.main{display:flex; gap:.4rem; align-items:center; font-size:.93rem}
   color:var(--ink-3); padding:.6rem .7rem .3rem}
 nav.main>a{color:var(--ink-2); text-decoration:none; padding:.5rem .7rem}
 nav.main>a:hover{color:var(--ink)}
-@media(max-width:900px){.menu,nav.main>a{display:none}}
+
+#burger{display:none; background:none; border:1px solid var(--line); border-radius:5px;
+  width:2.1rem; height:2.1rem; cursor:pointer; padding:0; flex:none; color:var(--ink)}
+#burger span,#burger span::before,#burger span::after{display:block; width:.95rem; height:1.5px;
+  background:currentColor; margin:0 auto; position:relative}
+#burger span::before,#burger span::after{content:""; position:absolute}
+#burger span::before{top:-.33rem} #burger span::after{top:.33rem}
+#mobile{display:none; border-top:1px solid var(--line); padding:.8rem 0 1.4rem}
+#mobile a{display:block; padding:.62rem 0; text-decoration:none; color:var(--ink-2); font-size:1rem}
+#mobile a:hover{color:var(--ink)}
+#mobile .lbl{display:block; font-size:.7rem; letter-spacing:.14em; text-transform:uppercase;
+  color:var(--ink-3); padding:1rem 0 .2rem; font-weight:500}
+#mobile .btn{margin-top:1.1rem; text-align:center}
+@media(max-width:900px){
+  .menu,nav.main>a,nav.main>.btn{display:none}
+  #burger{display:grid; place-items:center}
+  #mobile.open{display:block}
+}
 
 .btn{display:inline-block; border-radius:5px; padding:.82rem 1.6rem; font-size:1rem; font-weight:500;
   text-decoration:none; border:1px solid var(--ink); cursor:pointer; white-space:nowrap}
@@ -188,8 +205,31 @@ footer p{margin:0 0 .45rem}
       <a href="#founder">About</a>
       <button id="theme" type="button" aria-label="Switch between light and dark mode" title="Light / dark"></button>
       <a class="btn solid sm" href="mailto:contact@ariyahlabs.com">Get in touch</a>
+      <button id="burger" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="mobile"><span></span></button>
     </nav>
   </div>
+
+  <div class="wrap"><div id="mobile">
+    <span class="lbl">Consulting</span>
+    <a href="#services">DevOps</a>
+    <a href="#services">Salesforce</a>
+    <a href="#services">Platform engineering</a>
+    <a href="#services">Site reliability</a>
+    <a href="#services">Cloud &amp; FinOps</a>
+    <a href="#services">DevSecOps</a>
+    <a href="#services">Legacy modernisation</a>
+    <span class="lbl">AI</span>
+    <a href="#services">AI engineering</a>
+    <a href="#ai">How we approach AI work</a>
+    <span class="lbl">Products</span>
+    <a href="#products">Apps, SaaS &amp; internal tools</a>
+    <span class="lbl">Studio</span>
+    <a href="#studio">AI video &amp; content</a>
+    <span class="lbl">More</span>
+    <a href="#stack">Stack</a>
+    <a href="#founder">About</a>
+    <a class="btn solid" href="mailto:contact@ariyahlabs.com">Get in touch</a>
+  </div></div>
 </header>
 
 <div class="hero">
@@ -343,6 +383,16 @@ footer p{margin:0 0 .45rem}
     try { localStorage.theme = root.dataset.theme; } catch (e) {}
     paint();
   };
+
+  var burger = document.getElementById("burger"), panel = document.getElementById("mobile");
+  var shut = function () { panel.classList.remove("open"); burger.setAttribute("aria-expanded", "false"); };
+  burger.onclick = function () {
+    var open = panel.classList.toggle("open");
+    burger.setAttribute("aria-expanded", String(open));
+    burger.setAttribute("aria-label", open ? "Close menu" : "Open menu");
+  };
+  panel.addEventListener("click", function (e) { if (e.target.tagName === "A") shut(); });
+  addEventListener("keydown", function (e) { if (e.key === "Escape") shut(); });
 })();
 </script>
 </body>
