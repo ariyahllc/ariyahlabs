@@ -109,7 +109,9 @@ section{padding:6rem 0; border-bottom:1px solid var(--line)}
 .grid{display:grid; gap:1px; margin-top:3rem; background:var(--line);
   border:1px solid var(--line); border-radius:8px; overflow:hidden;
   grid-template-columns:repeat(auto-fit,minmax(16rem,1fr))}
-.card{background:var(--bg); padding:1.8rem 1.6rem}
+.card{background:var(--bg); padding:1.8rem 1.6rem; scroll-margin-top:6rem}
+section,.card:target{scroll-margin-top:6rem}
+.card:target{background:var(--surface)}
 .card p{margin:0; color:var(--ink-2); font-size:.94rem; line-height:1.5}
 
 .rule{list-style:none; padding:0; margin:2.4rem 0 0}
@@ -158,14 +160,14 @@ footer p{margin:0 0 .45rem}
         <button type="button">Consulting</button>
         <div class="panel">
           <span class="lbl">Platform &amp; cloud</span>
-          <a href="#services">DevOps</a>
-          <a href="#services">Platform engineering</a>
-          <a href="#services">Site reliability</a>
-          <a href="#services">Cloud &amp; FinOps</a>
-          <a href="#services">DevSecOps</a>
+          <a href="#devops">DevOps</a>
+          <a href="#platform-engineering">Platform engineering</a>
+          <a href="#site-reliability">Site reliability</a>
+          <a href="#cloud-finops">Cloud &amp; FinOps</a>
+          <a href="#devsecops">DevSecOps</a>
           <span class="lbl">Business systems</span>
-          <a href="#services">Salesforce</a>
-          <a href="#services">Legacy modernisation</a>
+          <a href="#salesforce">Salesforce</a>
+          <a href="#legacy">Legacy modernisation</a>
         </div>
       </div>
 
@@ -173,13 +175,11 @@ footer p{margin:0 0 .45rem}
         <button type="button">AI</button>
         <div class="panel">
           <span class="lbl">Engineering</span>
-          <a href="#services">LLM applications</a>
-          <a href="#services">Agent systems</a>
-          <a href="#services">Retrieval &amp; evaluation</a>
-          <a href="#services">Data &amp; MLOps</a>
+          <a href="#ai-engineering">AI engineering</a>
+          <a href="#data-mlops">Data &amp; MLOps</a>
+          <a href="#automation">Automation &amp; agents</a>
           <span class="lbl">Advisory</span>
-          <a href="#ai">Inference cost modelling</a>
-          <a href="#ai">AI readiness review</a>
+          <a href="#ai">How we approach AI work</a>
         </div>
       </div>
 
@@ -187,10 +187,10 @@ footer p{margin:0 0 .45rem}
         <button type="button">Products</button>
         <div class="panel">
           <span class="lbl">We build</span>
-          <a href="#products">Web &amp; mobile apps</a>
-          <a href="#products">SaaS platforms</a>
-          <a href="#products">Internal tools</a>
-          <a href="#products">Automation &amp; agents</a>
+          <a href="#apps">Web &amp; mobile apps</a>
+          <a href="#saas">SaaS platforms</a>
+          <a href="#internal-tools">Internal tools</a>
+          <a href="#automation">Automation &amp; agents</a>
         </div>
       </div>
 
@@ -198,10 +198,10 @@ footer p{margin:0 0 .45rem}
         <button type="button">Studio</button>
         <div class="panel">
           <span class="lbl">AI video &amp; content</span>
-          <a href="#studio">Promo &amp; brand video</a>
-          <a href="#studio">Product &amp; apparel video</a>
-          <a href="#studio">Social content systems</a>
-          <a href="#studio">Voice &amp; narration</a>
+          <a href="#promo-video">Promo &amp; brand video</a>
+          <a href="#product-video">Product &amp; apparel video</a>
+          <a href="#social-content">Social content systems</a>
+          <a href="#voice">Voice &amp; narration</a>
         </div>
       </div>
 
@@ -214,20 +214,20 @@ footer p{margin:0 0 .45rem}
 
   <div class="wrap"><div id="mobile">
     <span class="lbl">Consulting</span>
-    <a href="#services">DevOps</a>
-    <a href="#services">Salesforce</a>
-    <a href="#services">Platform engineering</a>
-    <a href="#services">Site reliability</a>
-    <a href="#services">Cloud &amp; FinOps</a>
-    <a href="#services">DevSecOps</a>
-    <a href="#services">Legacy modernisation</a>
+    <a href="#devops">DevOps</a>
+    <a href="#salesforce">Salesforce</a>
+    <a href="#platform-engineering">Platform engineering</a>
+    <a href="#site-reliability">Site reliability</a>
+    <a href="#cloud-finops">Cloud &amp; FinOps</a>
+    <a href="#devsecops">DevSecOps</a>
+    <a href="#legacy">Legacy modernisation</a>
     <span class="lbl">AI</span>
-    <a href="#services">AI engineering</a>
+    <a href="#ai-engineering">AI engineering</a>
     <a href="#ai">How we approach AI work</a>
     <span class="lbl">Products</span>
-    <a href="#products">Apps, SaaS &amp; internal tools</a>
+    <a href="#apps">Apps, SaaS &amp; internal tools</a>
     <span class="lbl">Studio</span>
-    <a href="#studio">AI video &amp; content</a>
+    <a href="#promo-video">AI video &amp; content</a>
     <span class="lbl">More</span>
     <a href="#stack">Stack</a>
     <a href="#founder">About</a>
@@ -253,15 +253,15 @@ footer p{margin:0 0 .45rem}
     <h2>Nine areas. One engineer on the call.</h2>
     <p class="sub">Advisory and hands-on engineering. Short engagements with a defined question, or longer work where we build it and hand it over.</p>
     <div class="grid">
-      <div class="card"><h3>DevOps</h3><p>Pipelines, infrastructure as code, Kubernetes, release automation.</p></div>
-      <div class="card"><h3>Salesforce</h3><p>Implementation, Apex and LWC development, integration, migration.</p></div>
-      <div class="card"><h3>AI engineering</h3><p>LLM applications, agents, retrieval, evaluation, inference cost control.</p></div>
-      <div class="card"><h3>Platform engineering</h3><p>Internal developer platforms, golden paths, self-service environments.</p></div>
-      <div class="card"><h3>Site reliability</h3><p>SLOs, observability, incident response, on-call that people can live with.</p></div>
-      <div class="card"><h3>Cloud &amp; FinOps</h3><p>AWS architecture, migration, and getting the monthly bill back down.</p></div>
-      <div class="card"><h3>DevSecOps</h3><p>Supply chain security, secrets management, policy as code, compliance evidence.</p></div>
-      <div class="card"><h3>Data &amp; MLOps</h3><p>Pipelines, warehouses, model deployment and monitoring in production.</p></div>
-      <div class="card"><h3>Legacy modernisation</h3><p>Moving systems off hardware and frameworks nobody wants to maintain.</p></div>
+      <div class="card" id="devops"><h3>DevOps</h3><p>Pipelines, infrastructure as code, Kubernetes, release automation.</p></div>
+      <div class="card" id="salesforce"><h3>Salesforce</h3><p>Implementation, Apex and LWC development, integration, migration.</p></div>
+      <div class="card" id="ai-engineering"><h3>AI engineering</h3><p>LLM applications, agents, retrieval, evaluation, inference cost control.</p></div>
+      <div class="card" id="platform-engineering"><h3>Platform engineering</h3><p>Internal developer platforms, golden paths, self-service environments.</p></div>
+      <div class="card" id="site-reliability"><h3>Site reliability</h3><p>SLOs, observability, incident response, on-call that people can live with.</p></div>
+      <div class="card" id="cloud-finops"><h3>Cloud &amp; FinOps</h3><p>AWS architecture, migration, and getting the monthly bill back down.</p></div>
+      <div class="card" id="devsecops"><h3>DevSecOps</h3><p>Supply chain security, secrets management, policy as code, compliance evidence.</p></div>
+      <div class="card" id="data-mlops"><h3>Data &amp; MLOps</h3><p>Pipelines, warehouses, model deployment and monitoring in production.</p></div>
+      <div class="card" id="legacy"><h3>Legacy modernisation</h3><p>Moving systems off hardware and frameworks nobody wants to maintain.</p></div>
     </div>
   </div>
 </section>
@@ -272,10 +272,10 @@ footer p{margin:0 0 .45rem}
     <h2>We build the software too.</h2>
     <p class="sub">Not only advice. We design, build and ship working products, then hand over the code and the runbook.</p>
     <div class="grid">
-      <div class="card"><h3>Web &amp; mobile apps</h3><p>From a first version that proves the idea through to something you can put in front of customers.</p></div>
-      <div class="card"><h3>SaaS platforms</h3><p>Multi-tenant products with billing, authentication and the operational plumbing behind them.</p></div>
-      <div class="card"><h3>Internal tools</h3><p>The dashboards, portals and admin systems that remove manual work from a team's week.</p></div>
-      <div class="card"><h3>Automation &amp; agents</h3><p>Scheduled and event-driven systems, including agents with real limits on what they can spend and touch.</p></div>
+      <div class="card" id="apps"><h3>Web &amp; mobile apps</h3><p>From a first version that proves the idea through to something you can put in front of customers.</p></div>
+      <div class="card" id="saas"><h3>SaaS platforms</h3><p>Multi-tenant products with billing, authentication and the operational plumbing behind them.</p></div>
+      <div class="card" id="internal-tools"><h3>Internal tools</h3><p>The dashboards, portals and admin systems that remove manual work from a team's week.</p></div>
+      <div class="card" id="automation"><h3>Automation &amp; agents</h3><p>Scheduled and event-driven systems, including agents with real limits on what they can spend and touch.</p></div>
     </div>
   </div>
 </section>
@@ -286,10 +286,10 @@ footer p{margin:0 0 .45rem}
     <h2>AI video, made at production cost.</h2>
     <p class="sub">We run open video models on our own GPUs instead of paying per clip. That changes what a campaign costs, so testing ten versions of an ad stops being a budget conversation.</p>
     <div class="grid">
-      <div class="card"><h3>Promo &amp; brand video</h3><p>Short-form video for local business and brand campaigns, built from your own photos and footage.</p></div>
-      <div class="card"><h3>Product &amp; apparel video</h3><p>Catalogue and storefront clips for e-commerce, generated per product rather than per shoot.</p></div>
-      <div class="card"><h3>Social content systems</h3><p>A repeatable pipeline for reels and carousels, not a one-off batch that runs dry in a fortnight.</p></div>
-      <div class="card"><h3>Voice &amp; narration</h3><p>Synthetic voiceover and scripting, matched to the brand rather than to a stock library.</p></div>
+      <div class="card" id="promo-video"><h3>Promo &amp; brand video</h3><p>Short-form video for local business and brand campaigns, built from your own photos and footage.</p></div>
+      <div class="card" id="product-video"><h3>Product &amp; apparel video</h3><p>Catalogue and storefront clips for e-commerce, generated per product rather than per shoot.</p></div>
+      <div class="card" id="social-content"><h3>Social content systems</h3><p>A repeatable pipeline for reels and carousels, not a one-off batch that runs dry in a fortnight.</p></div>
+      <div class="card" id="voice"><h3>Voice &amp; narration</h3><p>Synthetic voiceover and scripting, matched to the brand rather than to a stock library.</p></div>
     </div>
   </div>
 </section>
