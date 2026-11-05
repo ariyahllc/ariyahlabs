@@ -85,6 +85,9 @@ nav.main>a:hover{color:var(--ink)}
   #burger{display:grid; place-items:center}
   #mobile.open{display:block}
 }
+/* the brand + two buttons overflow a narrow row and shove the wordmark
+   past the wrap padding, so step it down rather than let it clip */
+@media(max-width:480px){.brand{font-size:1.16rem}.bar{gap:.6rem}}
 
 .btn{display:inline-block; border-radius:5px; padding:.82rem 1.6rem; font-size:1rem; font-weight:500;
   text-decoration:none; border:1px solid var(--ink); cursor:pointer; white-space:nowrap}
