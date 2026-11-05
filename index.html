@@ -4,121 +4,212 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Ariyah Consulting: DevOps, Salesforce, AI engineering</title>
-<meta name="description" content="Ariyah Consulting is a software consultancy working on DevOps and platform engineering, Salesforce delivery, and AI systems that reach production.">
+<meta name="description" content="Ariyah Consulting builds and runs production systems. DevOps and platform engineering, Salesforce, AI engineering, custom product development, and AI video production.">
 <meta property="og:title" content="Ariyah Consulting">
-<meta property="og:description" content="Software consulting: DevOps, Salesforce, AI engineering.">
+<meta property="og:description" content="Consulting, product development and AI video. Systems that reach production.">
 <meta property="og:type" content="website">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
 :root{
-  --bg:#fbfaf8; --surface:#ffffff; --ink:#16181a; --ink-2:#4a5157; --ink-3:#767f87;
-  --line:#e3e0da; --accent:#1f5c46; --accent-soft:#eef3f0; --max:66rem;
+  --bg:#e7e8eb; --surface:#f2f3f5; --ink:#0b0b0b; --ink-2:#333538; --ink-3:#6b6d72;
+  --line:#d3d5da; --max:74rem;
+}
+:root[data-theme="dark"]{
+  --bg:#0b0b0b; --surface:#141416; --ink:#f9f9f9; --ink-2:#b6b8bd; --ink-3:#7e8086; --line:#26272a;
 }
 @media (prefers-color-scheme:dark){
   :root:not([data-theme="light"]){
-    --bg:#0f1113; --surface:#16191c; --ink:#f0efec; --ink-2:#b3bac0; --ink-3:#828b93;
-    --line:#272b2f; --accent:#6fbf9b; --accent-soft:#152420;
+    --bg:#0b0b0b; --surface:#141416; --ink:#f9f9f9; --ink-2:#b6b8bd; --ink-3:#7e8086; --line:#26272a;
   }
 }
-:root[data-theme="dark"]{
-    --bg:#0f1113; --surface:#16191c; --ink:#f0efec; --ink-2:#b3bac0; --ink-3:#828b93;
-    --line:#272b2f; --accent:#6fbf9b; --accent-soft:#152420;
-}
-:root[data-theme="dark"] .mark{color:#0f1113}
 *{box-sizing:border-box}
-body{
-  margin:0; background:var(--bg); color:var(--ink);
-  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Inter,Roboto,Helvetica,Arial,sans-serif;
-  font-size:17px; line-height:1.65; -webkit-font-smoothing:antialiased;
-}
+body{margin:0; background:var(--bg); color:var(--ink);
+  font-family:Inter,-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif;
+  font-size:17px; line-height:1.55; -webkit-font-smoothing:antialiased}
 .wrap{max-width:var(--max); margin:0 auto; padding:0 1.6rem}
-a{color:var(--accent)}
-h1,h2,h3{line-height:1.2; letter-spacing:-0.018em; margin:0}
-h1{font-size:clamp(2.1rem,5.2vw,3.3rem); font-weight:640}
-h2{font-size:clamp(1.35rem,2.9vw,1.75rem); font-weight:620; margin-bottom:.9rem}
-h3{font-size:1.02rem; font-weight:640; margin-bottom:.35rem}
-p{margin:0 0 1.05rem}
-.lede{font-size:clamp(1.08rem,2vw,1.28rem); color:var(--ink-2); max-width:46ch}
+a{color:inherit}
 
-header{border-bottom:1px solid var(--line); position:sticky; top:0; background:color-mix(in srgb,var(--bg) 88%,transparent); backdrop-filter:blur(8px); z-index:10}
+h1,h2,h3{margin:0; font-weight:600}
+h1{font-size:clamp(2.6rem,7.4vw,4.7rem); letter-spacing:-0.047em; line-height:1.02}
+h2{font-size:clamp(1.9rem,4.4vw,3rem); letter-spacing:-0.038em; line-height:1.06; margin-bottom:1.1rem}
+h3{font-size:1.05rem; letter-spacing:-0.015em; margin-bottom:.4rem}
+p{margin:0 0 1.1rem}
+
+.eyebrow{display:inline-block; font-size:.78rem; letter-spacing:.16em; text-transform:uppercase;
+  color:var(--ink-3); margin-bottom:1.8rem; font-weight:500}
+.eyebrow::before{content:"[  "} .eyebrow::after{content:"  ]"}
+
+.announce{background:var(--ink); color:var(--bg); font-size:.76rem; letter-spacing:.09em;
+  text-transform:uppercase; text-align:center; padding:.62rem 1.6rem; font-weight:500}
+
+header{border-bottom:1px solid var(--line); position:sticky; top:0; z-index:40;
+  background:color-mix(in srgb,var(--bg) 92%,transparent); backdrop-filter:blur(10px)}
 .bar{display:flex; align-items:center; justify-content:space-between; padding:1.05rem 0; gap:1rem}
-.brand{display:flex; align-items:center; gap:.65rem; font-weight:720; letter-spacing:-0.025em; font-size:1.22rem; color:var(--ink); text-decoration:none}
-.mark{width:1.8rem;height:1.8rem;border-radius:6px;font-size:.95rem;background:var(--accent);display:grid;place-items:center;color:#fff;font-size:.82rem;font-weight:700;flex:none}
-@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .mark{color:#0f1113}}
-.bar nav{display:flex; gap:1.4rem; font-size:.92rem}
-.bar nav a{color:var(--ink-2); text-decoration:none}
-.bar nav a:hover{color:var(--accent)}
-@media(max-width:600px){.bar nav{display:none}}
+.brand{font-weight:700; letter-spacing:-0.04em; font-size:1.42rem; text-decoration:none; flex:none}
+nav.main{display:flex; gap:.4rem; align-items:center; font-size:.93rem}
 
-section{padding:4.6rem 0; border-bottom:1px solid var(--line)}
-.hero{padding:6rem 0 5rem; border-bottom:1px solid var(--line)}
-.tag{display:inline-block; font-size:.78rem; letter-spacing:.08em; text-transform:uppercase; color:var(--accent); background:var(--accent-soft); border:1px solid var(--line); padding:.32rem .7rem; border-radius:100px; margin-bottom:1.5rem; font-weight:600}
-.hero h1{max-width:20ch; margin-bottom:1.3rem}
+.menu{position:relative}
+.menu>button{background:none; border:0; color:var(--ink-2); font:inherit; cursor:pointer;
+  padding:.5rem .7rem; border-radius:5px; display:flex; align-items:center; gap:.35rem}
+.menu>button::after{content:""; width:.33rem; height:.33rem; border-right:1.5px solid currentColor;
+  border-bottom:1.5px solid currentColor; transform:rotate(45deg) translateY(-1px); opacity:.6}
+.menu:hover>button,.menu:focus-within>button{color:var(--ink); background:var(--surface)}
+.menu .panel{position:absolute; top:calc(100% + .45rem); left:0; min-width:16rem;
+  background:var(--bg); border:1px solid var(--line); border-radius:8px; padding:.5rem;
+  display:none; box-shadow:0 12px 32px rgba(0,0,0,.14)}
+.menu:hover .panel,.menu:focus-within .panel{display:block}
+.menu .panel a{display:block; padding:.55rem .7rem; border-radius:5px; text-decoration:none;
+  color:var(--ink-2); font-size:.92rem}
+.menu .panel a:hover,.menu .panel a:focus{background:var(--surface); color:var(--ink)}
+.menu .panel .lbl{display:block; font-size:.7rem; letter-spacing:.14em; text-transform:uppercase;
+  color:var(--ink-3); padding:.6rem .7rem .3rem}
+nav.main>a{color:var(--ink-2); text-decoration:none; padding:.5rem .7rem}
+nav.main>a:hover{color:var(--ink)}
+@media(max-width:900px){.menu,nav.main>a{display:none}}
 
-.grid{display:grid; gap:1.5rem; margin-top:2rem}
-.g2{grid-template-columns:repeat(auto-fit,minmax(17rem,1fr))}
-.g3{grid-template-columns:repeat(auto-fit,minmax(14.5rem,1fr))}
-.card{background:var(--surface); border:1px solid var(--line); border-radius:10px; padding:1.5rem}
-.card p{margin:0; color:var(--ink-2); font-size:.95rem}
-.card ul{margin:.7rem 0 0; padding-left:1.1rem; color:var(--ink-2); font-size:.92rem}
-.card li{margin-bottom:.3rem}
+.btn{display:inline-block; border-radius:5px; padding:.82rem 1.6rem; font-size:1rem; font-weight:500;
+  text-decoration:none; border:1px solid var(--ink); cursor:pointer; white-space:nowrap}
+.btn.solid{background:var(--ink); color:var(--bg)}
+.btn.ghost{background:none; color:var(--ink)}
+.btn.sm{padding:.46rem 1.1rem; font-size:.9rem}
+.btns{display:flex; gap:.7rem; flex-wrap:wrap; margin-top:2.2rem; justify-content:center}
 
-.units{width:100%; border-collapse:collapse; margin-top:1.6rem; font-size:.94rem; display:block; overflow-x:auto}
-.units th,.units td{text-align:left; padding:.72rem 1rem; border-bottom:1px solid var(--line); vertical-align:top}
-.units th{font-size:.78rem; text-transform:uppercase; letter-spacing:.06em; color:var(--ink-3); font-weight:640}
-.units td:first-child{font-weight:600; white-space:nowrap}
+.hero{padding:7rem 0 6.5rem; text-align:center; border-bottom:1px solid var(--line)}
+.hero h1{max-width:17ch; margin:0 auto}
+.hero .lede{font-size:clamp(1.05rem,2.1vw,1.32rem); color:var(--ink-2); max-width:56ch;
+  margin:1.7rem auto 0; letter-spacing:-0.012em}
+
+section{padding:6rem 0; border-bottom:1px solid var(--line)}
+.statement{font-size:clamp(1.5rem,3.6vw,2.4rem); font-weight:600; letter-spacing:-0.035em;
+  line-height:1.16; max-width:26ch}
+.sub{color:var(--ink-2); max-width:62ch; font-size:1.02rem}
+
+.grid{display:grid; gap:1px; margin-top:3rem; background:var(--line);
+  border:1px solid var(--line); border-radius:8px; overflow:hidden;
+  grid-template-columns:repeat(auto-fit,minmax(16rem,1fr))}
+.card{background:var(--bg); padding:1.8rem 1.6rem}
+.card p{margin:0; color:var(--ink-2); font-size:.94rem; line-height:1.5}
+
+.rule{list-style:none; padding:0; margin:2.4rem 0 0}
+.rule li{padding:1.4rem 0; border-top:1px solid var(--line); color:var(--ink-2); max-width:72ch;
+  display:grid; grid-template-columns:2.4rem 1fr; gap:.4rem}
+.rule li:last-child{border-bottom:1px solid var(--line)}
+.rule .n{color:var(--ink-3); font-size:.82rem; font-variant-numeric:tabular-nums; padding-top:.22rem}
+.rule strong{color:var(--ink); font-weight:600; display:block; margin-bottom:.15rem}
+
+.units{width:100%; border-collapse:collapse; margin-top:2.4rem; font-size:.95rem; display:block; overflow-x:auto}
+.units th,.units td{text-align:left; padding:1rem 1.2rem 1rem 0; border-bottom:1px solid var(--line); vertical-align:top}
+.units th{font-size:.76rem; text-transform:uppercase; letter-spacing:.12em; color:var(--ink-3); font-weight:500}
+.units td:first-child{font-weight:600; white-space:nowrap; padding-right:2.5rem}
 .units td:last-child{color:var(--ink-2)}
 
-.rule{list-style:none; padding:0; margin:1.6rem 0 0; display:grid; gap:1.15rem}
-.rule li{padding-left:1.5rem; position:relative; color:var(--ink-2); max-width:62ch}
-.rule li::before{content:""; position:absolute; left:0; top:.62em; width:.42rem; height:.42rem; border-radius:50%; background:var(--accent)}
-.rule strong{color:var(--ink); font-weight:640}
-
-.contact a.mail{font-size:clamp(1.15rem,2.6vw,1.5rem); font-weight:620; letter-spacing:-0.02em; text-decoration:none; border-bottom:2px solid var(--accent); padding-bottom:.1rem}
-#theme{background:none;border:1px solid var(--line);color:var(--ink-2);border-radius:6px;
-  width:2rem;height:2rem;cursor:pointer;font-size:.95rem;line-height:1;display:grid;place-items:center;padding:0}
-#theme:hover{color:var(--accent);border-color:var(--accent)}
-
-.who{display:flex;gap:1.6rem;align-items:flex-start;flex-wrap:wrap;margin-top:1.6rem}
-.who img,.who .initials{width:7.5rem;height:7.5rem;border-radius:10px;object-fit:cover;flex:none;border:1px solid var(--line)}
-.who .initials{background:var(--accent-soft);color:var(--accent);display:grid;place-items:center;font-size:2rem;font-weight:660}
-.who .bio{flex:1 1 20rem}
-.who .bio p{color:var(--ink-2);max-width:56ch}
+.who{display:flex; gap:2rem; align-items:flex-start; flex-wrap:wrap; margin-top:2.4rem}
+.who img,.who .initials{width:8.5rem; height:8.5rem; border-radius:8px; object-fit:cover; flex:none; border:1px solid var(--line)}
+.who .initials{background:var(--surface); color:var(--ink-3); display:grid; place-items:center;
+  font-size:2rem; font-weight:600; letter-spacing:-0.03em}
+.who .bio{flex:1 1 22rem}
+.who .bio p{color:var(--ink-2); max-width:58ch}
 .who .bio p:last-child{margin-bottom:0}
-.role{font-size:.88rem;color:var(--ink-3);margin:-.1rem 0 .7rem}
+.role{font-size:.88rem; color:var(--ink-3); margin:-.15rem 0 .9rem; letter-spacing:.02em}
 
-footer{padding:2.6rem 0 3.4rem; font-size:.88rem; color:var(--ink-3)}
-footer p{margin:0 0 .4rem}
+#theme{background:none; border:1px solid var(--line); color:var(--ink-2); border-radius:5px;
+  width:2.1rem; height:2.1rem; cursor:pointer; font-size:.95rem; display:grid; place-items:center; padding:0; flex:none}
+#theme:hover{color:var(--ink); border-color:var(--ink)}
+
+.contact{text-align:center}
+.contact h2{max-width:18ch; margin-left:auto; margin-right:auto}
+.contact .sub{margin:0 auto}
+footer{padding:3rem 0 4rem; font-size:.86rem; color:var(--ink-3)}
+footer p{margin:0 0 .45rem}
 </style>
 </head>
 <body>
 
+<div class="announce">Available for new engagements · DevOps · Salesforce · AI</div>
+
 <header>
   <div class="wrap bar">
-    <a class="brand" href="/"><span class="mark">A</span> Ariyah Consulting</a>
-    <nav>
-      <a href="#consulting">Consulting</a>
-      <a href="#stack">Stack</a>
+    <a class="brand" href="/">Ariyah Consulting</a>
+    <nav class="main">
+
+      <div class="menu">
+        <button type="button">Consulting</button>
+        <div class="panel">
+          <span class="lbl">Platform &amp; cloud</span>
+          <a href="#services">DevOps</a>
+          <a href="#services">Platform engineering</a>
+          <a href="#services">Site reliability</a>
+          <a href="#services">Cloud &amp; FinOps</a>
+          <a href="#services">DevSecOps</a>
+          <span class="lbl">Business systems</span>
+          <a href="#services">Salesforce</a>
+          <a href="#services">Legacy modernisation</a>
+        </div>
+      </div>
+
+      <div class="menu">
+        <button type="button">AI</button>
+        <div class="panel">
+          <span class="lbl">Engineering</span>
+          <a href="#services">LLM applications</a>
+          <a href="#services">Agent systems</a>
+          <a href="#services">Retrieval &amp; evaluation</a>
+          <a href="#services">Data &amp; MLOps</a>
+          <span class="lbl">Advisory</span>
+          <a href="#ai">Inference cost modelling</a>
+          <a href="#ai">AI readiness review</a>
+        </div>
+      </div>
+
+      <div class="menu">
+        <button type="button">Products</button>
+        <div class="panel">
+          <span class="lbl">We build</span>
+          <a href="#products">Web &amp; mobile apps</a>
+          <a href="#products">SaaS platforms</a>
+          <a href="#products">Internal tools</a>
+          <a href="#products">Automation &amp; agents</a>
+        </div>
+      </div>
+
+      <div class="menu">
+        <button type="button">Studio</button>
+        <div class="panel">
+          <span class="lbl">AI video &amp; content</span>
+          <a href="#studio">Promo &amp; brand video</a>
+          <a href="#studio">Product &amp; apparel video</a>
+          <a href="#studio">Social content systems</a>
+          <a href="#studio">Voice &amp; narration</a>
+        </div>
+      </div>
+
       <a href="#founder">About</a>
-      <a href="#contact">Contact</a>
       <button id="theme" type="button" aria-label="Switch between light and dark mode" title="Light / dark"></button>
+      <a class="btn solid sm" href="mailto:contact@ariyahlabs.com">Get in touch</a>
     </nav>
   </div>
 </header>
 
 <div class="hero">
   <div class="wrap">
-    <span class="tag">Software consulting</span>
-    <h1>DevOps, Salesforce, and AI systems that reach production.</h1>
-    <p class="lede">We build and run the infrastructure behind working software. Senior engineers only, direct access, no layers between you and the people doing the work.</p>
+    <span class="eyebrow">A software consultancy</span>
+    <h1>Systems that reach production.</h1>
+    <p class="lede">We consult on DevOps, Salesforce and AI engineering, build custom products, and produce AI video for brands. Senior engineers only, direct access, no layers between you and the people doing the work.</p>
+    <div class="btns">
+      <a class="btn solid" href="mailto:contact@ariyahlabs.com">Start a conversation</a>
+      <a class="btn ghost" href="#services">See what we do</a>
+    </div>
   </div>
 </div>
 
-<section id="consulting">
+<section id="services">
   <div class="wrap">
-    <h2>Consulting</h2>
-    <p style="color:var(--ink-2);max-width:62ch">Advisory and hands-on engineering across the areas below. Short engagements with a defined question, or longer work where we build and hand over.</p>
-
-    <div class="grid g3">
+    <span class="eyebrow">Consulting</span>
+    <h2>Nine areas. One engineer on the call.</h2>
+    <p class="sub">Advisory and hands-on engineering. Short engagements with a defined question, or longer work where we build it and hand it over.</p>
+    <div class="grid">
       <div class="card"><h3>DevOps</h3><p>Pipelines, infrastructure as code, Kubernetes, release automation.</p></div>
       <div class="card"><h3>Salesforce</h3><p>Implementation, Apex and LWC development, integration, migration.</p></div>
       <div class="card"><h3>AI engineering</h3><p>LLM applications, agents, retrieval, evaluation, inference cost control.</p></div>
@@ -129,22 +220,55 @@ footer p{margin:0 0 .4rem}
       <div class="card"><h3>Data &amp; MLOps</h3><p>Pipelines, warehouses, model deployment and monitoring in production.</p></div>
       <div class="card"><h3>Legacy modernisation</h3><p>Moving systems off hardware and frameworks nobody wants to maintain.</p></div>
     </div>
+  </div>
+</section>
 
-    <h2 style="margin-top:3.4rem">How we approach AI work</h2>
-    <p style="color:var(--ink-2);max-width:62ch">Most AI projects stall in the same place. The demo works, then nobody can say what it costs per user, how often it is wrong, or what happens when the model changes. We work on the part after the demo.</p>
+<section id="products">
+  <div class="wrap">
+    <span class="eyebrow">Products</span>
+    <h2>We build the software too.</h2>
+    <p class="sub">Not only advice. We design, build and ship working products, then hand over the code and the runbook.</p>
+    <div class="grid">
+      <div class="card"><h3>Web &amp; mobile apps</h3><p>From a first version that proves the idea through to something you can put in front of customers.</p></div>
+      <div class="card"><h3>SaaS platforms</h3><p>Multi-tenant products with billing, authentication and the operational plumbing behind them.</p></div>
+      <div class="card"><h3>Internal tools</h3><p>The dashboards, portals and admin systems that remove manual work from a team's week.</p></div>
+      <div class="card"><h3>Automation &amp; agents</h3><p>Scheduled and event-driven systems, including agents with real limits on what they can spend and touch.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="studio">
+  <div class="wrap">
+    <span class="eyebrow">Studio</span>
+    <h2>AI video, made at production cost.</h2>
+    <p class="sub">We run open video models on our own GPUs instead of paying per clip. That changes what a campaign costs, so testing ten versions of an ad stops being a budget conversation.</p>
+    <div class="grid">
+      <div class="card"><h3>Promo &amp; brand video</h3><p>Short-form video for local business and brand campaigns, built from your own photos and footage.</p></div>
+      <div class="card"><h3>Product &amp; apparel video</h3><p>Catalogue and storefront clips for e-commerce, generated per product rather than per shoot.</p></div>
+      <div class="card"><h3>Social content systems</h3><p>A repeatable pipeline for reels and carousels, not a one-off batch that runs dry in a fortnight.</p></div>
+      <div class="card"><h3>Voice &amp; narration</h3><p>Synthetic voiceover and scripting, matched to the brand rather than to a stock library.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="ai">
+  <div class="wrap">
+    <span class="eyebrow">How we approach AI work</span>
+    <p class="statement">Most AI projects stall in the same place. The demo works, then nobody can say what it costs.</p>
     <ul class="rule">
-      <li><strong>Find the real use case.</strong> Which parts of your workflow a model actually improves, and which are cheaper to solve with ordinary software.</li>
-      <li><strong>Cost before scale.</strong> Token and inference economics modelled per user before you commit, so unit margin is a decision instead of a surprise.</li>
-      <li><strong>Evaluation, not vibes.</strong> A test set and a pass threshold, so "is it good enough" has a number attached.</li>
-      <li><strong>Agents with limits.</strong> Tool access, approval gates, spend caps, and audit trails on anything that acts on its own.</li>
-      <li><strong>Working systems, handed over.</strong> We document and transfer what we build. No dependency on us to keep it running.</li>
+      <li><span class="n">01</span><span><strong>Find the real use case.</strong> Which parts of your workflow a model actually improves, and which are cheaper to solve with ordinary software.</span></li>
+      <li><span class="n">02</span><span><strong>Cost before scale.</strong> Token and inference economics modelled per user before you commit, so unit margin is a decision instead of a surprise.</span></li>
+      <li><span class="n">03</span><span><strong>Evaluation, not vibes.</strong> A test set and a pass threshold, so "is it good enough" has a number attached.</span></li>
+      <li><span class="n">04</span><span><strong>Agents with limits.</strong> Tool access, approval gates, spend caps, and audit trails on anything that acts on its own.</span></li>
+      <li><span class="n">05</span><span><strong>Working systems, handed over.</strong> We document and transfer what we build. No dependency on us to keep it running.</span></li>
     </ul>
   </div>
 </section>
 
 <section id="stack">
   <div class="wrap">
-    <h2>Stack and emerging practice</h2>
+    <span class="eyebrow">Stack</span>
+    <h2>What we build on.</h2>
     <table class="units">
       <thead><tr><th>Area</th><th>Tools and practice</th></tr></thead>
       <tbody>
@@ -154,43 +278,47 @@ footer p{margin:0 0 .4rem}
         <tr><td>Observability</td><td>Metrics, structured logging, distributed tracing, SLOs</td></tr>
         <tr><td>Salesforce</td><td>Apex, Lightning Web Components, integration patterns</td></tr>
         <tr><td>AI and LLM</td><td>Claude and other frontier models, agent frameworks, MCP, retrieval, evaluation</td></tr>
+        <tr><td>Video</td><td>Open video models on self-hosted GPUs, synthetic voice, automated editing</td></tr>
         <tr><td>Watching closely</td><td>Agentic engineering workflows, AI cost governance, platform engineering, developer experience tooling</td></tr>
       </tbody>
     </table>
   </div>
 </section>
 
-<section>
-  <div class="wrap">
-    <h2>How we work</h2>
-    <ul class="rule">
-      <li><strong>Small and senior.</strong> The person who scopes the work is the person who does it.</li>
-      <li><strong>Scoped engagements.</strong> A defined problem, a defined deliverable, a defined end. Retainers only when they genuinely fit.</li>
-      <li><strong>We say no.</strong> If the work does not need us, or a simpler approach solves it, we will tell you.</li>
-    </ul>
-  </div>
-</section>
-
 <section id="founder">
   <div class="wrap">
-    <h2>Who you work with</h2>
+    <span class="eyebrow">Who you work with</span>
     <div class="who">
       <div class="initials" aria-hidden="true">DP</div>
       <div class="bio">
         <h3>Dinesh Patra</h3>
         <p class="role">Founder and principal engineer</p>
-        <p>Platform, site reliability and cloud engineering, with recent work on AI systems and agent infrastructure. Based in Texas, working with clients across the United States.</p>
+        <p>Platform, site reliability and cloud engineering, with recent work on AI systems, agent infrastructure and self-hosted video generation. Based in Texas, working with clients across the United States.</p>
         <p>You talk to the engineer doing the work. There is no account manager in between, and nothing gets handed to someone junior after the contract is signed.</p>
       </div>
     </div>
   </div>
 </section>
 
-<section id="contact" class="contact">
+<section>
   <div class="wrap">
-    <h2>Contact</h2>
-    <p style="color:var(--ink-2);max-width:52ch">For consulting enquiries, scoping conversations, or a second opinion on an architecture.</p>
-    <p><a class="mail" href="mailto:contact@ariyahlabs.com">contact@ariyahlabs.com</a></p>
+    <span class="eyebrow">How we work</span>
+    <ul class="rule">
+      <li><span class="n">01</span><span><strong>Small and senior.</strong> The person who scopes the work is the person who does it.</span></li>
+      <li><span class="n">02</span><span><strong>Scoped engagements.</strong> A defined problem, a defined deliverable, a defined end. Retainers only when they genuinely fit.</span></li>
+      <li><span class="n">03</span><span><strong>We say no.</strong> If the work does not need us, or a simpler approach solves it, we will tell you.</span></li>
+    </ul>
+  </div>
+</section>
+
+<section class="contact">
+  <div class="wrap">
+    <span class="eyebrow">Contact</span>
+    <h2>Tell us what is breaking.</h2>
+    <p class="sub">Consulting enquiries, product scoping, video projects, or a second opinion on an architecture.</p>
+    <div class="btns">
+      <a class="btn solid" href="mailto:contact@ariyahlabs.com">contact@ariyahlabs.com</a>
+    </div>
   </div>
 </section>
 
@@ -207,7 +335,7 @@ footer p{margin:0 0 .4rem}
   var dark = function () {
     return (root.dataset.theme || (matchMedia("(prefers-color-scheme:dark)").matches ? "dark" : "light")) === "dark";
   };
-  var paint = function () { btn.textContent = dark() ? "\u2600" : "\u263E"; };
+  var paint = function () { btn.textContent = dark() ? "☀" : "☾"; };
   try { if (localStorage.theme) root.dataset.theme = localStorage.theme; } catch (e) {}
   paint();
   btn.onclick = function () {
