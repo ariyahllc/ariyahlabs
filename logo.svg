@@ -1,13 +1,9 @@
-<!-- Ariyah primary mark, for the header and anywhere above ~32px.
-     currentColor, so one file serves both themes.
-
-     The crossbar runs past the right leg on purpose. It is the detail that
-     stops this being a generic geometric A, and it is also the first thing
-     dropped in favicon.svg, where at 16px it would read as a stray pixel. -->
+<!-- Ariyah primary mark. One continuous path, no pen lifts:
+     up the left leg, down the right, then the bar cuts back across.
+     currentColor, so one file serves both themes. -->
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="100" height="100"
      fill="none" stroke="currentColor" stroke-width="7"
      stroke-linecap="round" stroke-linejoin="round"
      role="img" aria-label="Ariyah">
-  <path d="M22 84 L50 20 L78 84"/>
-  <path d="M33 64 H88"/>
+  <path d="M22 84 L50 20 L78 84 L34 62"/>
 </svg>
