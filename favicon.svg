@@ -1,0 +1,14 @@
+<!-- Small-size variant, rendered at 16x16 in a browser tab.
+     Same letterform as logo.svg but stouter: strokes thickened from 7 to 13
+     so they survive downscaling, apex widened so the counter stays open, and
+     the crossbar overshoot dropped because at 16px it reads as a stray pixel
+     rather than a flourish. Sits 2 units below true centre; a triangle
+     centred geometrically looks top-heavy. -->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="100" height="100"
+     role="img" aria-label="Ariyah">
+  <rect width="100" height="100" rx="22" fill="#0b0b0b"/>
+  <g fill="none" stroke="#e7e8eb" stroke-width="13" stroke-linecap="square" stroke-linejoin="miter">
+    <path d="M27 78 L50 28 L73 78"/>
+    <path d="M37 62 H63"/>
+  </g>
+</svg>
